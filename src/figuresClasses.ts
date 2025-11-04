@@ -17,14 +17,14 @@ export class Triangle implements Figure {
     private c: number,
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('Sides of triangle should be > 0');
+      throw new Error(`Invalid dimensions: ${a}, ${b}, ${c}. All must be > 0`);
     }
 
     const max = Math.max(a, b, c);
     const sumOthers = a + b + c - max;
 
     if (max >= sumOthers) {
-      throw new Error(`Invalid dimensions: ${a}, ${b}, ${c}. All must be > 0`);
+      throw new Error(`Invalid triangle: one side is too long`);
     }
   }
 
